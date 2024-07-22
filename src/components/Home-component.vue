@@ -3,7 +3,6 @@
     <main>
         <ScrollerComponent></ScrollerComponent>
     </main>
-    <canvas id="lightsaberCanvas" width="200" height="80"></canvas>  
 </template>
 
 <style scoped lang="scss">

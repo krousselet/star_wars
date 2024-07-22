@@ -3,7 +3,7 @@
         <transition name="fade">
             <div v-if="!isCorrect">
                 <form @submit.prevent="checkAnswer">
-                    <label>Hello there...</label>
+                    <label id="kenobi">Hello there...</label>
                     <div>
                         <input type="radio" id="option1" value="option1" v-model="selectedOption" />
                         <label for="option1">What's up ?</label>
@@ -34,12 +34,61 @@ p {
     justify-content: center;
     align-items: center;
     transition: background-color 0.5s;
-    height: 90vh;
+    height: 85vh;
     position: relative;
+    margin-top: 50px;
 
     form {
         position: absolute;
         transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        @media (min-width: 320px) and (max-width: 991px) {
+            width: 100%;
+        }
+        @media (min-width: 991px) and (max-width: 2048px) {
+            width: 75%;
+            font-size: 34px;
+            height: 90%;
+        }
+        @media (min-width: 2048px) {
+            width: 50%;
+            font-size: 54px;
+            height: 90%;
+        }
+
+        #kenobi {
+            font-family: "Bebas Neue", sans-serif;
+            color: transparent;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: yellow;
+            @media (min-width: 320px) and (max-width: 991px) {
+                font-size: 24px;
+                padding: 10px;
+                margin: 0 auto;
+
+            }
+        }
+        .field-container {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+            font-family: "Bebas Neue", sans-serif;
+
+            label {
+                width: 50%;
+            }
+
+            textarea {
+                width: 50%;
+            }
+        }
     }
 
     #description {

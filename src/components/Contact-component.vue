@@ -1,5 +1,4 @@
 <template>
-    <main>
         <form name="contact" method="POST" data-netlify="true" action="https://formspree.io/f/xrgnyjkl">
             <input type="hidden" name="form-name" value="contact" />
             <div class="field-container">
@@ -13,7 +12,6 @@
             </div>
                 <button class="btn button" type="submit">Envoyer</button>
         </form>
-    </main>
     </template>
     
     <script setup>
@@ -42,7 +40,6 @@
         border: 1px solid rgba(255, 255, 255, 0.3);
         background: rgba(255, 255, 255, 0.075);
         border-radius: 7px;
-        position: relative;
         @media (min-width: 991px) and (max-width: 1499px) {
             font-size: 24px;
             width: 75%;
@@ -56,41 +53,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 280px;
+            width: 100%;
+            height: 80px;
             margin: 0 auto;
-            @media (min-width: 991px) {
-            width: 500px;
-        }
     
             label, input {
-                min-width: 150px;
-                width: 300px;
-                margin-bottom: 25px;
-                transform: translateX(-100px);
-                animation: translate-x .3s ease forwards;
+                width: 50%;
             }
-    
+
             input, textarea {
+                color: black;
                 border: 0;
-                border-bottom: 1px solid var(--secondary-color);
-                background-color: transparent;
-                opacity: .2;
-    
-                &:active, &:focus {
-                    opacity: .5;
-                }
-            }
-            textarea {
-                transform: translateX(-100px);
-                animation: translate-x .3s ease forwards;
-                @media (min-width: 320px) and (max-width: 991px) {
-                    height: 125px;
-                    border-bottom: 1px solid var(--secondary-color);
-                    width: 100%;
-                }
-                @media (min-width: 991px) {
-                    height: 300px;
-                }
+                border-bottom: 1px solid white;
+                background: transparent;
             }
     
         }
