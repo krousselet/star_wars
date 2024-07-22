@@ -1,17 +1,17 @@
 <template>
-    <header>
+  <header>
     <nav>
       <div id="logo-container">
         <picture>
-            <img 
+          <img 
             :src="currentSaber" 
             alt="image d'un sabre laser" 
             id="lightsaber-small" 
             @click="changeImage"
-  />
+          />
         </picture>
       </div>
-      <div class="hamburger">
+      <div class="hamburger" @click="toggleMenu">
         <div class="upper"></div>
         <div class="middle"></div>
         <div class="lower"></div>
@@ -21,7 +21,11 @@
       </div>
     </nav>
   </header>
+  <transition name="fade">
+    <MobilemenuComponent v-if="hamburgerActive" @closeMenu="toggleMenu"></MobilemenuComponent>
+  </transition>
 </template>
+
 
 <style>
 header {
@@ -138,13 +142,18 @@ header {
 <script setup>
 import { useNavStore } from '@/stores/NavStore';
 import { ref, onMounted, onUnmounted } from 'vue';
+import MobilemenuComponent from '@/components/Mobile-menu-component';
+
 const ignitionSound = new Audio(require('@/assets/sound/ignition.mp3'));
 const extinctionSound = new Audio(require('@/assets/sound/extinction.mp3'));
-
 const navStore = useNavStore();
-
 const isExtended = ref(false);
 const currentSaber = ref(require('../assets/mobile/saber.png'));
+const hamburgerActive = ref(false);
+
+function toggleMenu() {
+  hamburgerActive.value = !hamburgerActive.value;
+}
 
 function updateSaber() {
     currentSaber.value = isExtended.value 
@@ -155,11 +164,10 @@ function updateSaber() {
 function changeImage() {
   isExtended.value = !isExtended.value;
   updateSaber();
-  if(isExtended.value) {
-    ignitionSound.play()
-  }
-  if(!isExtended.value) {
-    extinctionSound.play()
+  if (isExtended.value) {
+    ignitionSound.play();
+  } else {
+    extinctionSound.play();
   }
 }
 
