@@ -13,6 +13,15 @@ h1, h2, a, label, input {
     color: white;
 }
 
+// THIS IS A CLASS TO RESPECT THE DRY PRINCIPLE AND OUTLINE THE TEXT
+
+.outlined-text {
+    font-family: "Bebas Neue", sans-serif;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: yellow;
+}
+
 @keyframes scroll {
     0% {
         top: 0;
@@ -27,6 +36,7 @@ h1, h2, a, label, input {
 
 @keyframes appear {
     0% {
+        opacity: 0;
     }
 
     100% {
@@ -46,6 +56,27 @@ h1, h2, a, label, input {
     80% { transform: translate(-1px, -1px) rotate(1deg); }
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+// MAKE SURE TO APPLY THE TRANSFORM TO THE SELECTED ELEMENT WITH THE SAME VALUES AS BELOW AND AN OVERFLOW HIDDING TO THE PARENT
+@keyframes transform-x {
+    0% {
+        transform: translateX(-100vw);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes transform-y {
+    0% {
+        transform: translateY(100vh);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 </style>
 

@@ -33,6 +33,7 @@
         align-items: center;
         margin: 50px auto;
         height: 100%;
+        opacity: 0;
         animation: appear .5s ease forwards;
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);

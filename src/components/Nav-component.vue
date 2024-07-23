@@ -48,6 +48,8 @@ header {
     margin: 0 auto;
 
     #logo-container {
+      box-shadow: 0 10px 5px 5px rgba(255, 0, 0, 0.13);
+      border-radius: 50%;
       @media (min-width: 320px) and (max-width: 550px) {
         width: 50%;
         height: 100%;
@@ -96,7 +98,7 @@ header {
         top: 25%;
         width: 25px;
         height: 2px;
-        background: green;
+        background: linear-gradient(rgba(255, 0, 0, 0.555), rgba(165, 26, 26, 0.24));
       }
 
       .middle {

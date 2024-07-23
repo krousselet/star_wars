@@ -31,6 +31,8 @@
         width: 60%;
         margin: 0 auto;
         overflow: hidden;
+        opacity: 0;
+        animation: appear .2s ease forwards;
 
         @media (min-width: 320px) and (max-width: 991px) {
             width: 60%;

@@ -1,4 +1,5 @@
 <template>
+  <div class="overflow">
     <div id="mobile-menu">
       <ul>
         <li v-for="(page, index) in pages" :key="index" @click="closeMenu">
@@ -6,6 +7,7 @@
         </li>
       </ul>
     </div>
+  </div>  
   </template>
   
   <script>
@@ -36,42 +38,56 @@
     0% {
         display: none;
         opacity: 0;
+        transition-property: display opacity;
+        transition-duration: .2s;
+        transition-behavior: allow-discrete;
     }
     100% {
         display: flex;
         opacity: 1;
     }
   }
-  #mobile-menu {
-    opacity: 0;
-    position: absolute;
-    z-index: 50;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: white;
-    width: 100%;
-    height: 90vh;
-    top: 0;
-    left: 0;
-    margin-top: 80px;
-    background: black;
-    animation: menu .3s linear forwards;
 
-    ul {
-        display: flex;
-        flex-direction: column;
+  .overflow {
+    overflow-y: hidden;
+  
+    #mobile-menu {
+      opacity: 0;
+      position: absolute;
+      z-index: 50;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: white;
+      width: 100%;
+      height: 90vh;
+      top: 0;
+      left: 0;
+      margin-top: 80px;
+      background: black;
+      animation: menu .3s linear forwards;
+
+      ul {
+          display: flex;
+          flex-direction: column;
+          list-style: none;
+          padding: 0;
+
+          li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1em 0;
+            font-size: 1.5em;
+
+            a {
+              text-decoration: none;
+              color: rgba(255, 0, 0, 0.719);
+            }
+          }
+      }
     }
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    margin: 1em 0;
-    font-size: 1.5em;
+
   }
   </style>
   
