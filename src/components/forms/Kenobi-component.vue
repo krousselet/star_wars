@@ -4,6 +4,7 @@
                 <div v-if="!isCorrect">
                     <form @submit.prevent="checkAnswer">
                         <label id="kenobi" class="outlined-text">Hello there...</label>
+                        <MusicComponent ref="kenobiVoice" class="kenobi-voice" @click="playVoice"></MusicComponent>
                         <div class="field-container one">
                             <input type="radio" id="option1" value="option1" v-model="selectedOption" />
                             <label for="option1">What's up ?</label>
@@ -117,6 +118,10 @@ input[type="radio"]:checked + label::after {
                 padding: 10px;
                 margin: 0 auto;
             }
+        }
+        .kenobi-voice {
+            transform: translateX(-100vw);
+            animation: transform-x .5s ease .6s forwards;
         }
         .field-container {
             width: 50%;
@@ -248,23 +253,26 @@ input[type="radio"]:checked + label::after {
 
 <script>
 import DescriptionComponent from '../Description-component.vue';
+import MusicComponent from '../icons/Music-component.vue';
 
 export default {
     name: 'KenobiComponent',
     components: {
-        DescriptionComponent
+        DescriptionComponent,
+        MusicComponent,
     },
     data() {
         return {
             selectedOption: '',
             isCorrect: false,
             showError: false,
-            faith: new Audio(require('@/assets/sound/faith.mp3'))
+            faith: new Audio(require('@/assets/sound/faith.mp3')),
+            kenobi: new Audio(require('@/assets/sound/hello-there.mp3'))
         };
     },
     methods: {
         checkAnswer() {
-            if (this.selectedOption === 'general kenobi') {
+            if (this.selectedOption.toLowerCase() === 'general kenobi') {
                 this.isCorrect = true;
                 this.showError = false;
             } else {
@@ -277,6 +285,9 @@ export default {
             setTimeout(() => {
                 this.showError = false;
             }, 500);
+        },
+        playVoice() {
+            this.kenobi.play();
         }
     }
 };

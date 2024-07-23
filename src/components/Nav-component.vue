@@ -3,13 +3,14 @@
     <nav>
       <div id="logo-container">
         <picture>
-          <img 
-            :src="currentSaber" 
-            alt="image d'un sabre laser" 
-            id="lightsaber-small" 
-            @click="changeImage"
-          />
-        </picture>
+    <source media="(min-width: 992px)" :srcset="currentSaber">
+      <img 
+        :src="currentSaber" 
+        alt="image d'un sabre laser" 
+        id="lightsaber-small" 
+        @click="changeImage"
+      />
+  </picture>
       </div>
       <div class="hamburger" @click="toggleMenu">
         <div class="upper"></div>
@@ -50,14 +51,14 @@ header {
     #logo-container {
       box-shadow: 0 10px 5px 5px rgba(255, 0, 0, 0.13);
       border-radius: 50%;
-      @media (min-width: 320px) and (max-width: 550px) {
+      @media (min-width: 320px) and (max-width: 991px) {
         width: 50%;
         height: 100%;
       }
-      @media (min-width: 550px) and (max-width: 991px) {
+      /* @media (min-width: 550px) and (max-width: 991px) {
         width: 60%;
         height: 100%;
-      }
+      } */
       @media (min-width: 991px) and (max-width: 2048px) {
         width: 75%;
         height: 100%;
@@ -153,14 +154,21 @@ const isExtended = ref(false);
 const currentSaber = ref(require('../assets/mobile/saber.png'));
 const hamburgerActive = ref(false);
 
+const smallSaber = require('../assets/mobile/saber.png');
+const largeSaber = require('../assets/desktop/saber.png');
+const smallSaberOn = require('../assets/mobile/saber_on.png');
+const largeSaberOn = require('../assets/desktop/saber_on.png');
+
 function toggleMenu() {
   hamburgerActive.value = !hamburgerActive.value;
 }
 
 function updateSaber() {
-    currentSaber.value = isExtended.value 
-      ? require('../assets/mobile/saber_on.png')
-      : require('../assets/mobile/saber.png');
+  if (window.innerWidth > 991) {
+    currentSaber.value = isExtended.value ? largeSaberOn : largeSaber;
+  } else {
+    currentSaber.value = isExtended.value ? smallSaberOn : smallSaber;
+  }
 }
 
 function changeImage() {
