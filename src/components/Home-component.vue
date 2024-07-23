@@ -1,21 +1,17 @@
 <template>
-    <WrapperComponent id="wrapper-component"></WrapperComponent>
+        <MusicComponent ref="force" class="force" :isPlaying="isPlaying" @click="playPiano"></MusicComponent>
     <main>
-        <ScrollerComponent></ScrollerComponent>
+        <ScrollerComponent :isPlaying="isPlaying"></ScrollerComponent>
+        <!-- <button @click="playPiano">Play Audio</button> -->
     </main>
 </template>
 
 <style scoped lang="scss">
-#wrapper-component {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.force {
     position: absolute;
     right: 0;
-    top: 80px;
-    width: 50px;
-    height: max-content;
+    z-index: 1000;
+    // In order for the button to be clickable, it needs to appear on top of anything
 }
 main {
     color: white;
@@ -47,14 +43,34 @@ main {
 </style>
 
 <script>
-import WrapperComponent from '../components/icons/Wrapper-component';
 import ScrollerComponent from '../components/Scroller-component';
+import MusicComponent from '../components/icons/Music-component.vue';
 
 export default {
   name: "StarWarsText",
   components: {
-    WrapperComponent,
     ScrollerComponent,
+    MusicComponent
   },
+  data() {
+    return {
+      isPlaying: false,
+      force: new Audio(require('@/assets/sound/force.wav'))
+    };
+  },
+  methods: {
+    playPiano() {
+      if (this.isPlaying) {
+        this.force.pause();
+        this.isPlaying = false;
+      } else {
+        this.force.play();
+        this.isPlaying = true;
+        this.force.onended = () => {
+          this.isPlaying = false;
+        };
+      }
+    }
+  }
 };
 </script>

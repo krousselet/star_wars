@@ -135,6 +135,7 @@ input[type="radio"]:checked + label::after {
 
             label {
                 width: 50%;
+                color: white;
             }
 
             textarea {
