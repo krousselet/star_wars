@@ -1,28 +1,28 @@
 <template>
-        <div :class="{'shake': showError, 'red-background': showError}" id="form-container">
-            <transition name="fade">
-                <div v-if="!isCorrect">
-                    <form @submit.prevent="checkAnswer">
-                        <label id="kenobi" class="outlined-text">Hello there...</label>
-                        <MusicComponent ref="kenobiVoice" class="kenobi-voice" @click="playVoice"></MusicComponent>
-                        <div class="field-container one">
-                            <input type="radio" id="option1" value="option1" v-model="selectedOption" />
-                            <label for="option1">What's up ?</label>
-                        </div>
-                        <div class="field-container two">
-                            <input type="radio" id="option2" value="general kenobi" v-model="selectedOption" />
-                            <label for="option2">General Kenobi</label>
-                        </div>
-                        <div class="field-container three">
-                            <input type="radio" id="option3" value="option3" v-model="selectedOption" />
-                            <label for="option3">Petunia</label>
-                        </div>
-                        <button type="submit" class="send outlined-text">Envoyer</button>
-                    </form>
-                </div>
-                <DescriptionComponent v-else></DescriptionComponent>
-            </transition>
-        </div>
+    <div :class="{'shake': showError, 'red-background': showError}" id="form-container">
+        <transition name="fade">
+            <div v-if="!isCorrect">
+                <form @submit.prevent="checkAnswer">
+                    <label id="kenobi" class="outlined-text">Hello there...</label>
+                    <MusicComponent ref="kenobiVoice" class="kenobi-voice" :isPlaying="isPlaying" @click="playVoice"></MusicComponent>
+                    <div class="field-container one">
+                        <input type="radio" id="option1" value="option1" v-model="selectedOption" />
+                        <label for="option1">What's up ?</label>
+                    </div>
+                    <div class="field-container two">
+                        <input type="radio" id="option2" value="general kenobi" v-model="selectedOption" />
+                        <label for="option2">General Kenobi</label>
+                    </div>
+                    <div class="field-container three">
+                        <input type="radio" id="option3" value="option3" v-model="selectedOption" />
+                        <label for="option3">Petunia</label>
+                    </div>
+                    <button type="submit" class="send outlined-text">Envoyer</button>
+                </form>
+            </div>
+            <DescriptionComponent v-else></DescriptionComponent>
+        </transition>
+    </div>
 </template>
 
 <style scoped>
@@ -121,7 +121,7 @@ input[type="radio"]:checked + label::after {
         }
         .kenobi-voice {
             transform: translateX(-100vw);
-            animation: transform-x .5s ease .6s forwards;
+            animation: transform-x .5s ease .7s forwards;
         }
         .field-container {
             width: 50%;
@@ -266,13 +266,14 @@ export default {
             selectedOption: '',
             isCorrect: false,
             showError: false,
+            isPlaying: false,
             faith: new Audio(require('@/assets/sound/faith.mp3')),
             kenobi: new Audio(require('@/assets/sound/hello-there.mp3'))
         };
     },
     methods: {
         checkAnswer() {
-            if (this.selectedOption.toLowerCase() === 'general kenobi') {
+            if (this.selectedOption === 'general kenobi') {
                 this.isCorrect = true;
                 this.showError = false;
             } else {
@@ -288,6 +289,10 @@ export default {
         },
         playVoice() {
             this.kenobi.play();
+            this.isPlaying = true;
+            this.kenobi.onended = () => {
+                this.isPlaying = false;
+            };
         }
     }
 };
