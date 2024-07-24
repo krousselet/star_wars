@@ -13,6 +13,10 @@ h1, h2, a, label, input {
     color: white;
 }
 
+a {
+    transition: .2s ease;
+}
+
 // THIS IS A CLASS TO RESPECT THE DRY PRINCIPLE AND OUTLINE THE TEXT
 
 .outlined-text {
@@ -20,6 +24,15 @@ h1, h2, a, label, input {
     color: transparent;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: yellow;
+}
+
+h2, label, a {
+    color: transparent;
+    font-family: "Bebas Neue", sans-serif;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    letter-spacing: 3px;
 }
 
 @keyframes scroll {

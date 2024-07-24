@@ -51,14 +51,11 @@ header {
     #logo-container {
       box-shadow: 0 10px 5px 5px rgba(255, 0, 0, 0.13);
       border-radius: 50%;
-      @media (min-width: 320px) and (max-width: 991px) {
-        width: 50%;
-        height: 100%;
-      }
-      /* @media (min-width: 550px) and (max-width: 991px) {
-        width: 60%;
+      /* @media (min-width: 320px) and (max-width: 991px) {
+        width: 100%;
         height: 100%;
       } */
+
       @media (min-width: 991px) and (max-width: 2048px) {
         width: 75%;
         height: 100%;
@@ -129,13 +126,37 @@ header {
 
     a {
       font-weight: bold;
-      color: #2c3e50;
+      color: transparent;
+      text-decoration: none;
+      letter-spacing: 3px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 35px;
       @media (min-width: 991px) {
-        padding: 0 3vw;
+        margin-right: 30px;
+        font-size: 1.5vw;
       }
 
       &.router-link-exact-active {
-        color: #42b983;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: rgba(255, 0, 0, 0.897);
+      }
+      
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(rgba(228, 10, 10, 0.445), red);
+        transition: width 0.2s ease;
+      }
+
+      &:hover::before {
+        width: 100%;
+        transition: width 0.2s ease;
       }
     }
   }

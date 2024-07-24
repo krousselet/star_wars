@@ -13,6 +13,7 @@
     z-index: 1000;
     // In order for the button to be clickable, it needs to appear on top of anything
 }
+
 main {
     color: white;
     overflow: hidden;
