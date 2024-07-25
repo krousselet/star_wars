@@ -89,6 +89,7 @@ header {
         position: relative;
         width: 50px;
         height: 50px;
+        z-index: 1001;
       }
 
       .upper, .middle, .lower {
