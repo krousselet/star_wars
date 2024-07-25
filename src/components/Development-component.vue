@@ -34,9 +34,12 @@
   <style scoped>
   
   .swiper-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     @media (min-width: 320px) and (max-width: 991px) {
       width: 95%;
-      height: 100%;
       margin: 0 auto;
     }
   

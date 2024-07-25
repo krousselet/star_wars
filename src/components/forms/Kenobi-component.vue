@@ -81,11 +81,14 @@ input[type="radio"]:checked + label::after {
     align-items: center;
     transition: background-color 0.5s;
     width: 90%;
-    position: relative;
+    position: absolute;
     height: 400px;
     opacity: 0;
     animation: appear .3s ease forwards;
     margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     form {
         position: absolute;
@@ -158,52 +161,6 @@ input[type="radio"]:checked + label::after {
             transform: translateX(-100vw);
             animation: transform-x .5s ease 1.3s forwards;
         }
-
-        .send {
-            transform: translateY(100vh);
-            animation: transform-y .3s ease 1.5s forwards;
-            background: #000;
-            border: 2px solid #ffe81f;
-            width: 50%;
-            height: 100%;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: color 0.3s, border-color 0.3s;
-            font-size: 3.2vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: .3s ease;
-        }
-
-        .send::before {
-            transform: skewX(-45deg) translateX(-100%);
-            }
-
-            .send::after {
-            transform: skewX(-45deg) translateX(100%);
-            }
-
-            .send:hover::before {
-            transform: skewX(-45deg) translateX(100%);
-            }
-
-            .send:hover::after {
-            transform: skewX(-45deg) translateX(-100%);
-            }
-
-            .send:hover {
-            color: #000;
-            border-color: #fff;
-            background: #b31313;
-            transition: .3s ease;
-            }
-            .send:active {
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.233);
-            transition: .3s ease;
-            border: red;
-            }
     }
 
     #description {

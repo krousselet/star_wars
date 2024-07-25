@@ -17,12 +17,6 @@
             <p>Je suis passionné par de nombreux domaines, et je vais te les faire découvrir ici.</p>
         </swiper-slide>
         <swiper-slide class="swiper-slide">
-            <h2>Le développement web</h2>
-            <p>Comme tu as pu le constater, ce site internet a été conçu de A à Z, en utilisant du HTML, CSS, Javascript, et le framework Vue.</p>
-            <p>Pour ce qui est du sabre laser, j'ai utilisé "<span class="red">Blender</span>", et fusionné le style "<span class="red">Dooku</span>" avec des aspirations de "<span class="red">Dark Vador</span>" et de "<span class="green">Luke Skywalker</span>".</p>
-            <p>Le thème de la force est joué sur un piano yamaha U3, ce qui nous ammène au prochain point.</p>
-        </swiper-slide>
-        <swiper-slide class="swiper-slide">
             <h2>La musique</h2>
             <p>La musique prend une part importante de mon existence.</p>
             <p>Elle reste un moyen de communication qui atteint des cibles que le plus acéré des mots ne parviendra jamais à atteindre.</p>
@@ -46,14 +40,29 @@
             <a href="https://adiscar.netlify.app/#/" target="_blank">ADISCAR</a>
         </swiper-slide>
         <swiper-slide class="swiper-slide">
-            <h2>Les langues</h2>
+            <h2>Les langues 1...</h2>
             <h3>L'Anglais</h3>
             <p>Après avoir arrêté mes études en psychologie, j'ai exploré la piste des Lettres, Langues et Civilisations Etrangères.</p>
-            <p></p>
-            <p></p>
+            <p>Je me suis spécialisé dans la littérature Anglaise pendant deux années consécutives.</p>
             <h3>L'Italien</h3>
+            <p>Dans le même temps, j'ai pratiqué l'Italien.</p>
+            <p>Je dois reconnaître qu'il s'agit là d'une langue agréable à parler, à écouter, et dont le fonctionnement est similaire à musique.</p>
+            <p>Peut être est-ce là une des raisons pour laquelle je l'affectionne tant.</p>
+        </swiper-slide>
+        <swiper-slide class="swiper-slide">
+            <h2>Les langues 2...</h2>
             <h3>L'Espagnol</h3>
+            <p>J'ai pratiqué l'Espagnol en troisième langue pendant ma période de lycée.</p>
+            <p>Même si je ne la pratique plus autant qu'avant, je garde contact avec elle et je parle régulièrement avec des personnes dont elle est la langue maternelle.</p>
             <h3>Le Japonais</h3>
+            <p>J'utilise régulièrement l'application "<span class="green">DUOLINGO</span>".</p>
+            <p>Grâce à elle, j'ai pu étudier l'écriture, cyrillique, arabe et japonaise.</p>
+        </swiper-slide>
+        <swiper-slide class="swiper-slide">
+            <h2>Le développement web</h2>
+            <p>Comme tu as pu le constater, ce site internet a été conçu de A à Z, en utilisant du HTML, CSS, Javascript, et le framework Vue.</p>
+            <p>Pour ce qui est du sabre laser, j'ai utilisé "<span class="red">Blender</span>", et fusionné le style "<span class="red">Dooku</span>" avec des aspirations de "<span class="red">Dark Vador</span>" et de "<span class="green">Luke Skywalker</span>".</p>
+            <p>Le thème de la force est joué sur un piano yamaha U3.</p>
         </swiper-slide>
       </swiper-container>
     </main>
@@ -101,7 +110,7 @@ p {
     animation: appear .5s linear .7s forwards;
     width: 100%;
     top: 50%;
-    transform: translateY(-25%);
+    transform: translateY(-50%);
 
     .new-swiper-container {
         display: flex;
