@@ -6,7 +6,7 @@ export const useFooterStore = defineStore('footerStore', {
                 {
                     path: require('@/assets/logo.png'),
                     alt: 'logo personnel',
-                    link: 'https://devforceuser.netlify.app/',
+                    link: 'https://kevinrwebdeveloppeur.netlify.app/',
                 },
                 {
                     path: require('@/assets/mobile/facebook.svg'),
